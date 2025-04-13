@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Version base données via setter :
+    <bean id="d" class="dao.DaoImpl"></bean>
+    <bean id="metier" class="metier.metierImpl">
+        <property name="dao" ref="d"></property>
+    </bean>
+    -->
+    <!-- Version web service via setter  :
+    <bean id="d" class="ext.DaoImplV2"></bean>
+    <bean id="metier" class="metier.metierImpl">
+        <property name="dao" ref="d"></property>
+    </bean>
+    -->
+    <!-- Version web service via constructeur  :-->
+  <bean id="d" class="ext.DaoImplV2"></bean>
+  <bean id="metier" class="metier.metierImpl">
+      <constructor-arg ref="d"></constructor-arg>
+  </bean>
+
+</beans>
